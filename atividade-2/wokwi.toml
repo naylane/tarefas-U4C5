@@ -1,0 +1,4 @@
+[wokwi]
+version = 1
+firmware = 'build/tarefa1-U4C5.hex'
+elf = 'build/tarefa1-U4C5.elf'
