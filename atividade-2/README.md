@@ -15,7 +15,7 @@ Após a finalização do terceiro passo, o sistema está livre, ou seja, o botã
 ## Instruções de uso
 - É necessário instalar o SDK da Raspberry Pi Pico e realizar as configurações iniciais. [1]
 
-Para ter acesso ao projeto, clone o repositório disponível na plataforma GitHub.
+Para ter acesso ao projeto, clone o repositório disponível na [plataforma GitHub](https://github.com/naylane/tarefas-U4C5).
 
 Após clonar o repositório, no terminal, navegue até a pasta do projeto e execute os comandos:
 ```bash
