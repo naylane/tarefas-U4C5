@@ -11,9 +11,11 @@ O fluxo do programa pode ser visto da seguinte forma:
 E assim a atuação do semáforo acontece.
 
 <div align="center">  
-  <img align="center" width=50% src="../atv1.gif">
+  <img align="center" width=50% src="https://github.com/naylane/tarefas-U4C5/blob/0551d9930e86fdc17b3acbbb49140a8cbc5c8495/atividade-1/atv1.gif">
   <p><em>Execução na placa.</em></p>
 </div>
+
+
 
 ## Instruções de uso
 - É necessário instalar o SDK da Raspberry Pi Pico e realizar as configurações iniciais. [1]
