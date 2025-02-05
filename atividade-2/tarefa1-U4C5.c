@@ -1,15 +1,22 @@
-#include "pico/stdlib.h" // Biblioteca padrão do Raspberry Pi Pico para controle de GPIO, temporização e comunicação serial.
-#include "pico/time.h"   // Biblioteca para gerenciamento de temporizadores e alarmes.
+#include "pico/stdlib.h"
+#include "pico/time.h" 
 
 #define RED_PIN 13
 #define BLUE_PIN 12
 #define GREEN_PIN 11
 #define BUTTON_PIN 5
 
-static volatile uint32_t last_press_time = 0; ///< Timestamp do último pressionamento válido
-static volatile bool sys_free = true;  
+static volatile uint32_t last_press_time = 0; // Timestamp do último pressionamento válido
+static volatile bool sys_free = true;         // váriavel que informa se a sequência foi finalizada
 
-// Função de callback para desligar o LED após o tempo programado.
+
+/**
+ * @brief Função de callback do temporizador para transições de estado
+ * 
+ * @param id ID do alarme.
+ * @param user_data Número da sequência atual.
+ * @return retorna 0.
+ */
 int64_t turn_off_callback(alarm_id_t id, void *user_data) {
     uint8_t sequence = (uint8_t)user_data;
 
@@ -31,6 +38,13 @@ int64_t turn_off_callback(alarm_id_t id, void *user_data) {
     return 0;
 }
 
+
+/**
+ * @brief Rotina de Serviço de Interrupção (ISR) do botão. Todos os LEDs são acessos se a sequência estiver finalizada.
+ * 
+ * @param gpio GPIO que causou interrupção.
+ * @param events evento que causou interrupção.
+ */
 void btn_interrupt(uint gpio, uint32_t events) {
     uint32_t now = to_ms_since_boot(get_absolute_time());
     
@@ -50,6 +64,10 @@ void btn_interrupt(uint gpio, uint32_t events) {
     }
 }
 
+
+/**
+ * @brief Função principal.
+ */
 int main() {
     stdio_init_all();
 
